@@ -7,7 +7,6 @@ const counterSlice = createSlice({
     },
     reducers: {
         add: (state, action) => {
-            console.log("testttt", state.data)
             const data = current(state.data)
             state.data = [...data, { id: data.length + 1, product: "" }]
         },
@@ -20,7 +19,7 @@ const counterSlice = createSlice({
         change: (state, action) => {
             const data = current(state.data)
             const id = action.payload.id
-            const product = action.payload.id
+            const product = action.payload.product
             state.data = data.map((el) => el.id == id ? ({ ...el, product: product }) : el)
         }
     }
